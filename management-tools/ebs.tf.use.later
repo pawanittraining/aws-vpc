@@ -1,0 +1,21 @@
+resource "aws_ebs_volume" "jenkins_volume" {
+  availability_zone = "us-east-1a"  # Replace with your desired AZ
+  size              = 5            # Size in GiB
+  tags = {
+    Name = "devops-jenkins-vol"
+  }
+  lifecycle {
+    prevent_destroy = false
+  }
+}
+
+resource "aws_ebs_volume" "vault_volume" {
+  availability_zone = "us-east-1a"  # Replace with your desired AZ
+  size              = 5            # Size in GiB
+  tags = {
+    Name = "devops-vault-vol"
+  }
+  lifecycle {
+    prevent_destroy = false
+  }
+}
